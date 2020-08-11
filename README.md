@@ -37,3 +37,8 @@ enter their place name, type, address and the manager's phone & email.
 After filling the form, open-chains creates a new hub-id and redirects the 
 manager to page with his unique QR code and short url. The user
 is expected to print the page and hang it at the entries to his place.
+
+## Attribuitions
+
+Our icon was copied from [freepik](https://www.flaticon.com/authors/freepik)
+may they live long and prosper.

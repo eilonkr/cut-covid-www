@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta name="theme-color" content="#222831">
+  <link rel='manifest' href='./manifest.json'>
+  <title>Open Chains</title>
+
+  <script>
+    // Registering our Service worker
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js', { scope: './' })
+    }
+  </script>
+</head>
+<body>
+  <div class="hero">
+    <h1>מנתצי השרשראות</h1>
+  </div>
+</body>
+</html>

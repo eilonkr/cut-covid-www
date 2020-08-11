@@ -3,13 +3,13 @@
 <head>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <meta name="theme-color" content="#222831">
-  <link rel='manifest' href='./manifest.json'>
+  <link rel='manifest' href='/pwa/manifest.json'>
   <title>Open Chains</title>
 
   <script>
     // Registering our Service worker
     if('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js', { scope: './' })
+      navigator.serviceWorker.register('/dist/pwa.js', { scope: './' })
     }
   </script>
 </head>

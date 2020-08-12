@@ -1,18 +1,19 @@
-# open-chains
+# cut-covid-www
 
-## A server &amp; PWA that helps the people track virus transmission chains.
+All the UI parts of cut-covid are in this repo. They are written in plain ES6
+with no frameworks and very few dependecies. The parts are:
 
-We've started this project because we  belief that working together is the best
-modus operandi to contain the virus. If we check in at hubs and report when we
-tested positive we can quickly break the transmission chains by texting people
-telling them they should get tested and minimize social interactions until they
-get a negative result.
+- Hub's progressive web app
+- Check in/out form
+- User's registration form
+- Covid news
+- ...
 
-## Entry Path
+## User Scenarios
 
-At the entry to each hub there is a printed page with the hub's unique URL
-encoded as a QR code and a shortened url. The url is of the form
-`/hub/<hub_id>` and leads to one of to pages:
+The main scenario starts at the entry to each hub with is a printed page with
+the hub's unique URL encoded as a QR code and a shortened url. The url is of
+the form `/hub/<hub_id>` and leads to one of to pages:
 
 ### Check IN/Check Out
 
@@ -23,19 +24,20 @@ virus update.
 ### Register
 
 First timers have to add their phone number.
-The number will only be used to text users when open-chains discovers
+The number will only be used to text users when the code discovers
 they were in close contact with infected people.
-Upon filling the phone, open-chain creates a unique ID for the user and stores
+Upon entering their phone, the code creates a unique ID for the user and stores
 it in the browser's local storage. This ID will be used to identify the user in
 all future interactions.
 
 ## Hub Registration
 
 Our home page invites business managers to register their place as a hub. 
-When they click the register button they are directed to a form where they
-enter their place name, type, address and the manager's phone & email. 
-After filling the form, open-chains creates a new hub-id and redirects the 
-manager to page with his unique QR code and short url. The user
+When they click the register button they are asked to install our PWA.
+Upon lunching the app they'll be presented with a form where they
+enter the hub's name, type, address and the manager's phone & email. 
+After filling the form, the code creates a new hub-id and redirects the 
+manager to page with his unique QR code and a short url. The user
 is expected to print the page and hang it at the entries to his place.
 
 ## Attribuitions

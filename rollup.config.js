@@ -1,7 +1,7 @@
 export default [{
-  input: 'src/pwa.js',
+  input: 'src/hub.sw.js',
   output: {
-    file: 'dist/pwa.js',
+    file: 'dist/hub.sw.js',
     format: 'iife'
   }
 } /*, {

@@ -1,4 +1,4 @@
-const cacheName = 'open-chains';
+const cacheName = 'cut-covid';
 
 // Cache all the files to make a PWA
 self.addEventListener('install', e => {
@@ -8,7 +8,7 @@ self.addEventListener('install', e => {
         './',
         './img/icon-512.png',
         './img/icon-192.png',
-        './pwa.html',
+        './hub.html',
         './manifest.json'
       ]);
     })

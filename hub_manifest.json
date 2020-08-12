@@ -1,11 +1,11 @@
 {
-  "name": "Open-Chains",
-  "short_name": "ochains",
+  "name": "cut-covid-hub",
+  "short_name": "cchub",
   "theme_color": "#2196f3",
   "background_color": "#2196f3",
   "display": "browser",
   "scope": "/",
-  "start_url": "/pwa.html",
+  "start_url": "/hub.html",
   "display": "fullscreen",
   "icons": [
     {

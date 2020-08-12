@@ -4,10 +4,10 @@ export default [{
     file: 'dist/hub.sw.js',
     format: 'iife'
   }
-} /*, {
-  input: 'src/cico.js',
+} , {
+  input: 'src/check.js',
   output: {
-    file: 'dist/cico.js',
+    file: 'dist/check.js',
     format: 'iife'
   }
-} */ ]
+} ]

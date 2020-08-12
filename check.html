@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Entry - cut-covid</title>
+  <link rel="stylesheet" href="/css/theme.css" />
+</head>
+<body>
+    <div id="new-user" class="hidden">
+        <h1>Welcome!</h1>
+        <p>As this is the first time you check in we will create
+            an ID for you and store it on your device.
+            The phone number will only be used to notify you
+            when we've traced a covid contact.
+        </p>
+        <label>Phone Number</label>
+        <input name="tel" type="tel" />
+        <button id="register-button">Register</button>
+    </div>
+    <div id="known-user" class="hidden">
+        <form id="checkin">
+            <label>Last 3 Numbers of ID</label>
+            <input name="three" size="3" />
+            <select name="duration">
+                <option value="15">15 minutes</option>
+                <option value="30" selected>30 minutes</option>
+                <option value="60">An Hour</option>
+                <option value="90">90 minutes</option>
+                <option value="120">Two Hours</option>
+            </select>
+            <button id="checkin-button">Check In</button>
+        </form>
+        <hr />
+        <form id="checkout">
+            <button id="checkout-button">Check Out</button>
+        </form>
+    </div>
+
+    <div id="loading">Loading</div>
+  <script src="/dist/check.js"></script>
+</body>
+</html>

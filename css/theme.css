@@ -1,0 +1,12 @@
+body {
+    margin: 2vh 2vw;
+}
+
+form {
+    margin: 2vh 2vw;
+    display: block;
+}
+
+.hidden {
+    display: none;
+}

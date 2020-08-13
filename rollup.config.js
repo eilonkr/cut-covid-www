@@ -1,3 +1,5 @@
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+
 export default [{
   input: 'src/hub.sw.js',
   output: {
@@ -9,7 +11,8 @@ export default [{
   output: {
     file: 'dist/hub.js',
     format: 'iife'
-  }
+  },
+    plugins: [nodeResolve({browser: true})]
 } , {
   input: 'src/check.js',
   output: {

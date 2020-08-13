@@ -3,19 +3,45 @@
 <head>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <meta name="theme-color" content="#222831">
+  <link rel="stylesheet" href="/css/theme.css" />
   <link rel='manifest' href='/hub_manifest.json'>
-  <title>Open Chains</title>
-
-  <script>
-    // Registering our Service worker
-    if('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/hub.sw.bundle.js', { scope: './' })
-    }
-  </script>
+  <title>Hub Registration</title>
 </head>
 <body>
-  <div class="hero">
-    <h1>מנתצי השרשראות</h1>
+    <div id="message"></div>
+    <div id="register">
+        <form name="registration">
+            <p>
+            <label for="name">Name</label>
+            <input id="name" name="name" size="30" required />
+            </p><p>
+            <label for="address">Address</label>
+            <input id="address" name="address" size="30" required />
+            </p><p>
+            <label for="type">Type</label>
+            <select id="type" name="type">
+                <option value="cafe">Cafe</option>
+                <option value="resturant">Resturant</option>
+                <option value="gym">Gym</option>
+                <option value="other">Other</option>
+            </select>
+            <label for="other">If other:</label>
+            <input id="other" name="other" size="20"/>
+            </p><p>
+            <label for="contact-name">Contact Name</label>
+            <input id="contact-name" name="contact-name" size="30" required />
+            </p><p>
+            <label for="contact-phone">Contact Phone</label>
+            <input id=-"contact-phone" name="contact-phone" size="30" required />
+            </p><p>
+            <label for="company-id">Company ID</label>
+            <input id="company-id" name="company-id" size="30" />
+            </p>
+            <div class="buttons">
+                <button type="submit">Register</button>
+            </div>
+        </form>
   </div>
+  <script src="/dist/hub.js"></script>
 </body>
 </html>

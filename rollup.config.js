@@ -4,6 +4,12 @@ export default [{
     file: 'hub.sw.bundle.js',
     format: 'iife'
   }
+}, {
+  input: 'src/hub.js',
+  output: {
+    file: 'dist/hub.js',
+    format: 'iife'
+  }
 } , {
   input: 'src/check.js',
   output: {

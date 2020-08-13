@@ -9,7 +9,7 @@ self.addEventListener('install', e => {
         './img/icon-512.png',
         './img/icon-192.png',
         './hub.html',
-        './manifest.json'
+        './hub_manifest.json'
       ]);
     })
   );

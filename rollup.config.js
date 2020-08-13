@@ -1,7 +1,7 @@
 export default [{
   input: 'src/hub.sw.js',
   output: {
-    file: 'dist/hub.sw.js',
+    file: 'hub.sw.bundle.js',
     format: 'iife'
   }
 } , {

@@ -11,14 +11,14 @@
 <body>
     <div id="message"></div>
     <div id="register" class="hidden">
-        <form name="registration">
-            <p>
+        <form name="registration" class="pure-form pure-form-aligned">
+            <div class="pure-control-group">
             <label for="name">Name</label>
             <input id="name" name="name" size="30" required />
-            </p><p>
+            </div><div class="pure-control-group">
             <label for="address">Address</label>
             <input id="address" name="address" size="30" required />
-            </p><p>
+            </div><div class="pure-control-group">
             <label for="type">Type</label>
             <select id="type" name="type">
                 <option value="cafe">Cafe</option>
@@ -26,20 +26,20 @@
                 <option value="gym">Gym</option>
                 <option value="other">Other</option>
             </select>
+            </div><div class="pure-control-group">
             <label for="other">If other:</label>
             <input id="other" name="other" size="20"/>
-            </p><p>
+            </div><div class="pure-control-group">
             <label for="contact-name">Contact Name</label>
             <input id="contact-name" name="contact_name" size="30" required />
-            </p><p>
+            </div><div class="pure-control-group">
             <label for="contact-phone">Contact Phone</label>
             <input id=-"contact-phone" name="contact_details" size="30" required />
-            </p><p>
+            </div><div class="pure-control-group">
             <label for="company-id">Company ID</label>
             <input id="company-id" name="company_id" size="30" />
-            </p>
-            <div class="buttons">
-                <button type="submit">Register</button>
+            </div><div class="pure-controls">
+            <button type="submit" class="pure-button pure-button-primary">Register</button>
             </div>
         </form>
     </div>

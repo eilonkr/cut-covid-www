@@ -15,17 +15,18 @@ document.addEventListener("DOMContentLoaded", ev => {
                 "Thank you for signing up"
             firstCheckin = localStorage.removeItem("cut-covid-firstci")
         }
-        document.getElementById("checkin-button").onclick = ev => {
+        document.checkin.onsubmit = ev => {
+            ev.preventDefault()
             console.log("checkin")
             let c = document.getElementById("checkin"),
                 three = c.querySelector('input[name="three"]').value,
-                duration = c.querySelector('input[name="duration"]').value,
+                duration = c.querySelector('select[name="duration"]').value,
                 hubid = location.hash.slice(1),
                 url = urls.api.check + hubid
             // send a check in to the tracker
             fetch(url, {
-              headers: { "Content-Type": "application/json; charset=utf-8" },
-              method: 'POST',
+              headers: new Headers({ "Content-Type": "application/json; charset=utf-8" }),
+              method: 'post',
               body: JSON.stringify({
                 type: "in",
                 three: three,
@@ -35,7 +36,18 @@ document.addEventListener("DOMContentLoaded", ev => {
             }).then(response => {
                 if (!response.ok)
                     throw new Error(`HTTP error! status: ${response.status}`)
-                return response.blob()
+                return response.json()
+            }).then(data => {
+                let m = document.getElementById("message")
+                if (data.success) {
+                    m.innerHTML = ""
+                    document.getElementById("known-user").classList.add("hidden")
+                    document.getElementById("thanks").classList.remove("hidden")
+                }
+                else {
+                    m.innerHTML = "Sorry, check in failed."
+                    console.log("check in reponse:", data)
+                }
             })
         }
         document.getElementById("checkout-button").onclick = ev => {
@@ -47,7 +59,7 @@ document.addEventListener("DOMContentLoaded", ev => {
         document.getElementById("register-button").onclick = ev => {
             let tel = n.querySelector('input[name="tel"]').value
             fetch(urls.api.register, {
-              headers: { "Content-Type": "application/json; charset=utf-8" },
+              headers: new Headers({ "Content-Type": "application/json; charset=utf-8" }),
               method: 'POST',
               body: JSON.stringify({
                 tel: tel

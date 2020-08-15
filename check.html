@@ -19,9 +19,12 @@
         <button id="register-button">Register</button>
     </div>
     <div id="known-user" class="hidden">
-        <form id="checkin">
-            <label>Last 3 Numbers of ID</label>
-            <input name="three" size="3" />
+        <form id="checkin" name="checkin">
+            <p>
+            <label for="three">Last 3 Numbers of ID</label>
+            <input id="three" name="three" size="3" />
+            </p><p>
+            <label for="duration">Duration</label>
             <select name="duration">
                 <option value="15">15 minutes</option>
                 <option value="30" selected>30 minutes</option>
@@ -29,12 +32,17 @@
                 <option value="90">90 minutes</option>
                 <option value="120">Two Hours</option>
             </select>
+            </p>
             <button id="checkin-button">Check In</button>
         </form>
         <hr />
         <form id="checkout">
             <button id="checkout-button">Check Out</button>
         </form>
+    </div>
+    <div id="thanks" class="hidden">
+        <h2>Thank you for checking in</h2>
+        <p>(You can close the this tab now)</p>
     </div>
 
     <div id="loading">Loading</div>

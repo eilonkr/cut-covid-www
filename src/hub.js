@@ -1,3 +1,5 @@
+import qrcode from 'qrcode-generator-es6'
+
 // import * as qrcode from 'qrcode'
 // import { toDataURL } from 'qrcode'
 
@@ -5,6 +7,7 @@ const   HUBS_URL     = "http://54.72.200.116:5000/hub",
         CHECK_IN_URL = "http://54.72.200.116:7000/hub/"
 
 // Registering our Service worker
+// TODO: move the bundle to dist while keeping the scope global
 if('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/hub.sw.bundle.js', { scope: './' })
 }
@@ -52,12 +55,14 @@ document.addEventListener("DOMContentLoaded", ev => {
         }
     } else {
         // 
-        let u = CHECK_IN_URL + id.slice(0,6)
-        document.getElementById("sign").classList.remove("hidden")
+        let u = CHECK_IN_URL + id.slice(0,6),
+            sign = document.getElementById("sign");
         document.getElementById("short-url").innerHTML = u
-        /*
-        qrcode.toDataURL(u)
-              .then(url => document.getElementById("qr-img").src = url)
-              */
+        const qr = new qrcode(0, 'H');
+        qr.addData(u);
+        qr.make();
+        document.getElementById("qrcode").innerHTML = qr.createSvgTag({cellSize:4})
+        sign.classList.remove("hidden")
+        sign.querySelector("svg").setAttribute("width", "500")
     }
 })

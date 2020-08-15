@@ -1,0 +1,29 @@
+{
+  "name": "cut-covid-www",
+  "version": "0.1.0",
+  "description": "UI of a contact tracing tool",
+  "main": "src/hub.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "qrcode-generator-es6": "^1.1.4",
+    "rollup": "^2.23.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^9.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cut-covid/cut-covid-www.git"
+  },
+  "author": "",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/cut-covid/cut-covid-www/issues"
+  },
+  "homepage": "https://github.com/cut-covid/cut-covid-www#readme"
+}

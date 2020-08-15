@@ -16,3 +16,6 @@ form {
 label {
     clear: both;
 }
+#sign {
+    text-align: center;
+}

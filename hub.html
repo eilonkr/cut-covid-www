@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="message"></div>
-    <div id="register">
+    <div id="register" class="hidden">
         <form name="registration">
             <p>
             <label for="name">Name</label>
@@ -41,7 +41,12 @@
                 <button type="submit">Register</button>
             </div>
         </form>
-  </div>
-  <script src="/dist/hub.js"></script>
+    </div>
+    <div id="sign" class="hidden"> 
+        <h1>Please scan the code below to check in</h1>
+        <img id="qr-img" alt="The qr code of the hub" />
+        <h3 id="short-url"></h3>
+    </div>
+    <script src="/dist/hub.js"></script>
 </body>
 </html>

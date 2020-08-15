@@ -10,46 +10,54 @@ if('serviceWorker' in navigator) {
 }
 
 document.addEventListener("DOMContentLoaded", ev => {
-    document.registration.onsubmit = ev => {
-    // Then we prevent the form from being sent by canceling the event
-        let type = document.getElementById("type"),
-            other = document.getElementById("other")
+    let id = localStorage.getItem("cut-covid-hubid")
+    if (!id) {
+        document.getElementById("register").classList.remove("hidden")
+        document.registration.onsubmit = ev => {
+        // Then we prevent the form from being sent by canceling the event
 
-        ev.preventDefault()
-        if ((type.value == "other") && (!other.value)) {
-            document.getElementById("message").innerHTML = 
-                "Please enter the business type"
-            other.dispatchEvent(invalid)
-        } else {
-            let params = {}
-            document.getElementById("message").innerHTML = ""
-            Array.from(document.registration.elements).forEach(e => {
-                if ((e.name) && (e.value))
-                    params[e.name] = e.value
-            })
-            // TODO: upgrade the backend so it can get "other"
+            ev.preventDefault()
+            let type = document.getElementById("type"),
+                other = document.getElementById("other")
 
-            fetch(HUBS_URL, {
-                headers: new Headers({ 'Content-Type': 'application/json' }),
-                method: 'POST',
-                mode: 'cors',
-                body: JSON.stringify(params)
-            }).then(response => {
-                if (!response.ok)
-                    throw new Error(`HTTP error! status: ${response.status}`)
-                var b = response.json()
-                console.log(b)
-                return b
-            }).then(d => {
-                let u = CHECK_IN_URL + d.id.slice(0,6)
-                localStorage.setItem("cut-covid-hubid", d.id)
-                document.getElementById("short-url").innerHTML = u
-                debugger
-                /*
-                qrcode.toDataURL(u)
-                      .then(url => document.getElementById("qr-img").src = url)
-                      */
-            })
+            if ((type.value == "other") && (!other.value)) {
+                document.getElementById("message").innerHTML = 
+                    "Please enter the business type"
+                other.dispatchEvent(invalid)
+            } else {
+                let params = {}
+                document.getElementById("message").innerHTML = ""
+                Array.from(document.registration.elements).forEach(e => {
+                    if ((e.name) && (e.value))
+                        params[e.name] = e.value
+                })
+                // TODO: upgrade the backend so it can get "other"
+
+                fetch(HUBS_URL, {
+                    headers: new Headers({ 'Content-Type': 'application/json' }),
+                    method: 'POST',
+                    mode: 'cors',
+                    body: JSON.stringify(params)
+                }).then(response => {
+                    if (!response.ok)
+                        throw new Error(`HTTP error! status: ${response.status}`)
+                    var b = response.json()
+                    console.log(b)
+                    return b
+                }).then(d => {
+                    localStorage.setItem("cut-covid-hubid", d.id)
+                    location.reload()
+                })
+            }
         }
+    } else {
+        // 
+        let u = CHECK_IN_URL + id.slice(0,6)
+        document.getElementById("sign").classList.remove("hidden")
+        document.getElementById("short-url").innerHTML = u
+        /*
+        qrcode.toDataURL(u)
+              .then(url => document.getElementById("qr-img").src = url)
+              */
     }
 })

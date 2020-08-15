@@ -15,9 +15,16 @@
             The phone number will only be used to notify you
             when we've traced a covid contact.
         </p>
-        <label>Phone Number</label>
-        <input name="tel" type="tel" />
-        <button id="register-button">Register</button>
+        <form id="register" name="register" class="pure-form pure-form-aligned">
+            <div class="pure-control-group">
+                <label>Phone Number</label>
+                <input name="tel" type="tel" />
+            </div><div class="pure-controls">
+                <button id="register-button" class="pure-button pure-button-primary">
+                    Register
+                </button>
+            </div>
+        </form>
     </div>
     <div id="known-user" class="hidden">
         <form id="checkin" name="checkin" class="pure-form pure-form-aligned">

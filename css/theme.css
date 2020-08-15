@@ -2,19 +2,16 @@ body {
     margin: 2vh 2vw;
 }
 
+hr {
+    width: 66%;
+    margin: 5% auto;
+}
 form {
     margin: 2vh 2vw;
 }
 
 .hidden {
     display: none;
-}
-.buttons {
-    margin-top: 4vh;
-    display: block;
-}
-label {
-    clear: both;
 }
 #sign {
     text-align: center;

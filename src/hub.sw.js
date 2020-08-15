@@ -1,4 +1,4 @@
-const cacheName = 'cut-covid';
+const cacheName = 'cut-covid'
 
 // Cache all the files to make a PWA
 self.addEventListener('install', e => {
@@ -6,14 +6,16 @@ self.addEventListener('install', e => {
     caches.open(cacheName).then(cache => {
       return cache.addAll([
         './',
+        './hub.html',
+        './hub_manifest.json',
         './img/icon-512.png',
         './img/icon-192.png',
-        './hub.html',
-        './hub_manifest.json'
-      ]);
+        './css/theme.css',
+        './css/pure-min.css',
+      ])
     })
-  );
-});
+  )
+})
 
 // Our service worker will intercept all fetch requests
 // and check if we have cached the file
@@ -23,7 +25,7 @@ self.addEventListener('fetch', event => {
     caches.open(cacheName)
       .then(cache => cache.match(event.request, { ignoreSearch: true }))
       .then(response => {
-        return response || fetch(event.request);
+        return response || fetch(event.request)
       })
-  );
-});
+  )
+})

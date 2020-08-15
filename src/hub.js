@@ -4,7 +4,7 @@ import qrcode from 'qrcode-generator-es6'
 // import { toDataURL } from 'qrcode'
 
 const   HUBS_URL     = "http://54.72.200.116:5000/hub",
-        CHECK_IN_URL = "http://54.72.200.116:7000/hub/"
+    CHECK_IN_URL = "http://45.83.40.91:8000/check.html#"
 
 // Registering our Service worker
 // TODO: move the bundle to dist while keeping the scope global
@@ -34,8 +34,10 @@ document.addEventListener("DOMContentLoaded", ev => {
                     if ((e.name) && (e.value))
                         params[e.name] = e.value
                 })
-                // TODO: upgrade the backend so it can get "other"
-
+                if (params.type == "other") {
+                    params.type = params.other
+                    delete params.other
+                }
                 fetch(HUBS_URL, {
                     headers: new Headers({ 'Content-Type': 'application/json' }),
                     method: 'POST',
@@ -55,14 +57,17 @@ document.addEventListener("DOMContentLoaded", ev => {
         }
     } else {
         // 
-        let u = CHECK_IN_URL + id.slice(0,6),
-            sign = document.getElementById("sign");
-        document.getElementById("short-url").innerHTML = u
+        const   url = CHECK_IN_URL + id.slice(0,Math.min(id.length, 6)),
+                sign = document.getElementById("sign"),
+                short = document.getElementById("short-url")
+        //TODO: shrinken the url
+        short.setAttribute("href", url)
+        short.innerHTML = url
         const qr = new qrcode(0, 'H');
-        qr.addData(u);
+        qr.addData(url);
         qr.make();
         document.getElementById("qrcode").innerHTML = qr.createSvgTag({cellSize:4})
-        sign.classList.remove("hidden")
         sign.querySelector("svg").setAttribute("width", "500")
+        sign.classList.remove("hidden")
     }
 })

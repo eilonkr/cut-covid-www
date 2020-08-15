@@ -1,5 +1,4 @@
-const   TRACKER_URL     = "http://example.com",
-        REGISTER_URL    = "http://example.com"
+import { urls } from "./urls.js"
 
 document.addEventListener("DOMContentLoaded", ev => {
     const urlParams = new URLSearchParams(window.location.search)
@@ -20,9 +19,11 @@ document.addEventListener("DOMContentLoaded", ev => {
             console.log("checkin")
             let c = document.getElementById("checkin"),
                 three = c.querySelector('input[name="three"]').value,
-                duration = c.querySelector('input[name="duration"]').value
+                duration = c.querySelector('input[name="duration"]').value,
+                hubid = location.hash.slice(1),
+                url = urls.api.check + hubid
             // send a check in to the tracker
-            fetch(TRACKER_URL, {
+            fetch(url, {
               headers: { "Content-Type": "application/json; charset=utf-8" },
               method: 'POST',
               body: JSON.stringify({
@@ -45,8 +46,7 @@ document.addEventListener("DOMContentLoaded", ev => {
         n.classList.remove("hidden")
         document.getElementById("register-button").onclick = ev => {
             let tel = n.querySelector('input[name="tel"]').value
-            /*
-            fetch(REGISTER_URL, {
+            fetch(urls.api.register, {
               headers: { "Content-Type": "application/json; charset=utf-8" },
               method: 'POST',
               body: JSON.stringify({
@@ -55,15 +55,12 @@ document.addEventListener("DOMContentLoaded", ev => {
             }).then(response => {
                 if (!response.ok)
                     throw new Error(`HTTP error! status: ${response.status}`)
-                return response.text()
-            }).then(key => {
-                localStorage.setItem("cut-covid-id", key)
-
+                return response.json()
+            }).then(d => {
+                localStorage.setItem("cut-covid-id", d.id)
+                localStorage.setItem("cut-covid-firstci", true)
+                location.reload()
             })
-                */
-            localStorage.setItem("cut-covid-id", "1234567890")
-            localStorage.setItem("cut-covid-firstci", true)
-            location.reload()
         }
     }
 })

@@ -1,10 +1,5 @@
 import qrcode from 'qrcode-generator-es6'
-
-// import * as qrcode from 'qrcode'
-// import { toDataURL } from 'qrcode'
-
-const   HUBS_URL     = "http://54.72.200.116:5000/hub",
-    CHECK_IN_URL = "http://45.83.40.91:8000/check.html#"
+import { urls } from "./urls.js"
 
 // Registering our Service worker
 // TODO: move the bundle to dist while keeping the scope global
@@ -38,7 +33,7 @@ document.addEventListener("DOMContentLoaded", ev => {
                     params.type = params.other
                     delete params.other
                 }
-                fetch(HUBS_URL, {
+                fetch(urls.api.hub, {
                     headers: new Headers({ 'Content-Type': 'application/json' }),
                     method: 'POST',
                     mode: 'cors',
@@ -46,9 +41,7 @@ document.addEventListener("DOMContentLoaded", ev => {
                 }).then(response => {
                     if (!response.ok)
                         throw new Error(`HTTP error! status: ${response.status}`)
-                    var b = response.json()
-                    console.log(b)
-                    return b
+                    return response.json()
                 }).then(d => {
                     localStorage.setItem("cut-covid-hubid", d.id)
                     location.reload()
@@ -57,7 +50,7 @@ document.addEventListener("DOMContentLoaded", ev => {
         }
     } else {
         // 
-        const   url = CHECK_IN_URL + id.slice(0,Math.min(id.length, 6)),
+        const   url = urls.web.check + id.slice(0,Math.min(id.length, 6)),
                 sign = document.getElementById("sign"),
                 short = document.getElementById("short-url")
         //TODO: shrinken the url

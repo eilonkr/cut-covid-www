@@ -1,13 +1,21 @@
 # cut-covid-www
 
 All the UI parts of cut-covid are in this repo. They are written in plain ES6
-with no frameworks and very few dependecies. The parts are:
+with no frameworks and very few dependecies. For now the parts are:
 
 - Hub's progressive web app
 - Check in/out form
 - User's registration form
-- Covid news
-- ...
+
+## Developing
+
+Fir you need to install the dependecies using `npm i` and then build the js
+bundle using `npm run build`.
+
+To see it in a browser you'll need a simple http server. The easiest way is
+to `python3 -m http.server` and then http://127.0.0.1:8000 will show a list
+of the project's files. you can either click `hub.html` to see the hub app
+or `check.html` to get the checkin form.
 
 ## User Scenarios
 

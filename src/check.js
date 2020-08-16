@@ -2,6 +2,38 @@ import { urls } from "./urls.js"
 
 
 document.addEventListener("DOMContentLoaded", ev => {
+    const submitCheck = (cid, type) => {
+        let c = document.getElementById("checkin"),
+                duration = c.querySelector('select[name="duration"]').value,
+                hubid = location.hash.slice(1),
+                url = urls.api.check + hubid
+            // send a check in to the tracker
+        fetch(url, {
+          headers: new Headers({ "Content-Type": "application/json; charset=utf-8" }),
+          method: 'post',
+          body: JSON.stringify({
+            type: type,
+            duration: duration,
+            user: cid
+          })
+        }).then(response => {
+            if (!response.ok)
+                throw new Error(`HTTP error! status: ${response.status}`)
+            return response.json()
+        }).then(data => {
+            let m = document.getElementById("message")
+            if (data.success) {
+                m.innerHTML = ""
+                document.getElementById("known-user").classList.add("hidden")
+                document.getElementById("thanks-type").innerHTML = type
+                document.getElementById("thanks").classList.remove("hidden")
+            }
+            else {
+                m.innerHTML = `Sorry, check ${type} failed.`
+                console.log("check reponse:", data)
+            }
+        })
+    }
     const showCheckin = (user) => {
         // we have an id, show the check in/out form
         const cid = user.cid
@@ -11,38 +43,13 @@ document.addEventListener("DOMContentLoaded", ev => {
                 "Thank you for signing up"
             firstCheckin = localStorage.removeItem("cut-covid-firstci")
         }
+        document.checkout.onsubmit = ev => {
+            ev.preventDefault()
+            submitCheck(cid, "out")
+        }
         document.checkin.onsubmit = ev => {
             ev.preventDefault()
-            console.log("checkin")
-            let c = document.getElementById("checkin"),
-                duration = c.querySelector('select[name="duration"]').value,
-                hubid = location.hash.slice(1),
-                url = urls.api.check + hubid
-            // send a check in to the tracker
-            fetch(url, {
-              headers: new Headers({ "Content-Type": "application/json; charset=utf-8" }),
-              method: 'post',
-              body: JSON.stringify({
-                type: "in",
-                duration: duration,
-                user: cid
-              })
-            }).then(response => {
-                if (!response.ok)
-                    throw new Error(`HTTP error! status: ${response.status}`)
-                return response.json()
-            }).then(data => {
-                let m = document.getElementById("message")
-                if (data.success) {
-                    m.innerHTML = ""
-                    document.getElementById("known-user").classList.add("hidden")
-                    document.getElementById("thanks").classList.remove("hidden")
-                }
-                else {
-                    m.innerHTML = "Sorry, check in failed."
-                    console.log("check in reponse:", data)
-                }
-            })
+            submitCheck(cid, "in")
         }
     }, showRegister = () => {
         // show the registration page

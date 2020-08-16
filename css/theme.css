@@ -16,3 +16,7 @@ form {
 #sign {
     text-align: center;
 }
+#thanks {
+    width: 80%;
+    margin: 1em auto;
+}

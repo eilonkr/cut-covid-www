@@ -17,8 +17,14 @@
         </p>
         <form id="register" name="register" class="pure-form pure-form-aligned">
             <div class="pure-control-group">
-                <label>Phone Number</label>
-                <input name="tel" type="tel" />
+                <label for="phone">Phone Number</label>
+                <input id="phone" name="phone" type="tel" required />
+            </div><div class="pure-control-group">
+                <label for="three">Last 3 Numbers of ID</label>
+                <input id="three" name="three" size="3" required />
+            </div><div class="pure-control-group">
+                <label for="name">Name</label>
+                <input id="name" name="name" size="20" placeholder="optional" />
             </div><div class="pure-controls">
                 <button id="register-button" class="pure-button pure-button-primary">
                     Register
@@ -29,9 +35,6 @@
     <div id="known-user" class="hidden">
         <form id="checkin" name="checkin" class="pure-form pure-form-aligned">
             <div class="pure-control-group">
-                <label for="three">Last 3 Numbers of ID</label>
-                <input id="three" name="three" size="3" />
-            </div><div class="pure-control-group">
             <label for="duration">Duration</label>
             <select name="duration">
                 <option value="15">15 minutes</option>

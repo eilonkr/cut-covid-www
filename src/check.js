@@ -1,13 +1,8 @@
 import { urls } from "./urls.js"
 
-document.addEventListener("DOMContentLoaded", ev => {
-    const urlParams = new URLSearchParams(window.location.search)
-    let uid = localStorage.getItem("cut-covid-id"),
-        firstCheckin = localStorage.getItem("cut-covid-firstci")
-    
-    document.getElementById("loading").classList.add("hidden")
 
-    if (uid) {
+document.addEventListener("DOMContentLoaded", ev => {
+    const showCheckin = () => {
         // we have an id, show the check in/out form
         document.getElementById("known-user").classList.remove("hidden")
         if (firstCheckin) {
@@ -19,7 +14,6 @@ document.addEventListener("DOMContentLoaded", ev => {
             ev.preventDefault()
             console.log("checkin")
             let c = document.getElementById("checkin"),
-                three = c.querySelector('input[name="three"]').value,
                 duration = c.querySelector('select[name="duration"]').value,
                 hubid = location.hash.slice(1),
                 url = urls.api.check + hubid
@@ -29,7 +23,6 @@ document.addEventListener("DOMContentLoaded", ev => {
               method: 'post',
               body: JSON.stringify({
                 type: "in",
-                three: three,
                 duration: duration,
                 user: uid.slice(0,6)
               })
@@ -50,29 +43,48 @@ document.addEventListener("DOMContentLoaded", ev => {
                 }
             })
         }
-        document.getElementById("checkout-button").onclick = ev => {
-        }
-    } else {
-        // no ID, show the registration page
+    }, showRegister = () => {
+        // show the registration page
         let n = document.getElementById("new-user")
         n.classList.remove("hidden")
-        document.getElementById("register-button").onclick = ev => {
-            let tel = n.querySelector('input[name="tel"]').value
+        document.register.onsubmit = ev => {
+            let phone = n.querySelector('input[name="phone"]').value,
+                three = n.querySelector('input[name="three"]').value,
+                name = n.querySelector('input[name="name"]').value
+            ev.preventDefault()
+            // register the user and store the returned data
             fetch(urls.api.register, {
               headers: new Headers({ "Content-Type": "application/json; charset=utf-8" }),
               method: 'POST',
+              mode: 'cors',
               body: JSON.stringify({
-                tel: tel
+                name:  name,
+                personal_id: three,
+                phone: phone
               })
             }).then(response => {
                 if (!response.ok)
                     throw new Error(`HTTP error! status: ${response.status}`)
                 return response.json()
             }).then(d => {
-                localStorage.setItem("cut-covid-id", d.id)
+                localStorage.setItem("cut-covid-id", JSON.stringify(d))
                 localStorage.setItem("cut-covid-firstci", true)
-                location.reload()
+                n.classList.add("hidden")
+                showCheckin()
             })
         }
+    }
+    const urlParams = new URLSearchParams(window.location.search)
+
+    let uid = localStorage.getItem("cut-covid-id"),
+        firstCheckin = localStorage.getItem("cut-covid-firstci")
+
+    
+    document.getElementById("loading").classList.add("hidden")
+
+    if (uid) {
+        showChecking()
+    } else {
+        showRegister()
     }
 })

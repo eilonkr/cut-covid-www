@@ -8,8 +8,7 @@ if('serviceWorker' in navigator) {
 }
 
 document.addEventListener("DOMContentLoaded", ev => {
-    let id = localStorage.getItem("cut-covid-hubid")
-    if (!id) {
+    const showRegister = () => {
         document.getElementById("register").classList.remove("hidden")
         document.registration.onsubmit = ev => {
         // Then we prevent the form from being sent by canceling the event
@@ -43,14 +42,15 @@ document.addEventListener("DOMContentLoaded", ev => {
                         throw new Error(`HTTP error! status: ${response.status}`)
                     return response.json()
                 }).then(d => {
-                    localStorage.setItem("cut-covid-hubid", d.id)
-                    location.reload()
+                    localStorage.setItem("cut-covid-hubid", JSON.stringify(d))
+                    document.getElementById("register").classList.add("hidden")
+                    showSign(d)
                 })
             }
         }
-    } else {
+    }, showSign = (hub) => {
         // 
-        const   url = urls.web.check + id.slice(0,Math.min(id.length, 6)),
+        const   url = urls.web.check + hub.id,
                 sign = document.getElementById("sign"),
                 short = document.getElementById("short-url")
         //TODO: shrinken the url
@@ -63,4 +63,9 @@ document.addEventListener("DOMContentLoaded", ev => {
         sign.querySelector("svg").setAttribute("width", "500")
         sign.classList.remove("hidden")
     }
+    let id = localStorage.getItem("cut-covid-hubid")
+    if (!id)
+        showRegister()
+    else 
+        showSign(JSON.parse(id))
 })

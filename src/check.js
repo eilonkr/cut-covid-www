@@ -2,8 +2,9 @@ import { urls } from "./urls.js"
 
 
 document.addEventListener("DOMContentLoaded", ev => {
-    const showCheckin = () => {
+    const showCheckin = (user) => {
         // we have an id, show the check in/out form
+        const cid = user.cid
         document.getElementById("known-user").classList.remove("hidden")
         if (firstCheckin) {
             document.getElementById("message").innerHTML = 
@@ -24,7 +25,7 @@ document.addEventListener("DOMContentLoaded", ev => {
               body: JSON.stringify({
                 type: "in",
                 duration: duration,
-                user: uid.slice(0,6)
+                user: cid
               })
             }).then(response => {
                 if (!response.ok)
@@ -70,20 +71,20 @@ document.addEventListener("DOMContentLoaded", ev => {
                 localStorage.setItem("cut-covid-id", JSON.stringify(d))
                 localStorage.setItem("cut-covid-firstci", true)
                 n.classList.add("hidden")
-                showCheckin()
+                showCheckin(d)
             })
         }
     }
     const urlParams = new URLSearchParams(window.location.search)
 
-    let uid = localStorage.getItem("cut-covid-id"),
+    let id = localStorage.getItem("cut-covid-id"),
         firstCheckin = localStorage.getItem("cut-covid-firstci")
 
     
     document.getElementById("loading").classList.add("hidden")
 
-    if (uid) {
-        showChecking()
+    if (id) {
+        showCheckin(JSON.parse(id))
     } else {
         showRegister()
     }

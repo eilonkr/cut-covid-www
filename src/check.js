@@ -1,6 +1,5 @@
 import { urls } from "./urls.js"
 
-
 document.addEventListener("DOMContentLoaded", ev => {
     const submitCheck = (cid, type) => {
         let c = document.getElementById("checkin"),
@@ -21,28 +20,18 @@ document.addEventListener("DOMContentLoaded", ev => {
                 throw new Error(`HTTP error! status: ${response.status}`)
             return response.json()
         }).then(data => {
-            let m = document.getElementById("message")
             if (data.success) {
-                m.innerHTML = ""
-                document.getElementById("known-user").classList.add("hidden")
-                document.getElementById("thanks-type").innerHTML = type
-                document.getElementById("thanks").classList.remove("hidden")
+                showThanks(`<h2>Thank you for your check ${type}</h2>`)
             }
             else {
                 m.innerHTML = `Sorry, check ${type} failed.`
                 console.log("check reponse:", data)
             }
         })
-    }
-    const showCheckin = (user) => {
+    }, showCheckin = user => {
         // we have an id, show the check in/out form
-        const cid = user.cid
+        let cid = user.cid
         document.getElementById("known-user").classList.remove("hidden")
-        if (firstCheckin) {
-            document.getElementById("message").innerHTML = 
-                "Thank you for signing up"
-            firstCheckin = localStorage.removeItem("cut-covid-firstci")
-        }
         document.checkout.onsubmit = ev => {
             ev.preventDefault()
             submitCheck(cid, "out")
@@ -51,6 +40,23 @@ document.addEventListener("DOMContentLoaded", ev => {
             ev.preventDefault()
             submitCheck(cid, "in")
         }
+        document.getElementById("register-cid-link").addEventListener("click",
+            ev => {
+            document.getElementById("known-user").classList
+                    .add("hidden")
+            document.getElementById("checkin-cid").classList
+                    .remove("hidden")
+            return false
+        })
+        document.checkinCid.onsubmit = ev => {
+            cid = document.getElementById("checkin-cid")
+                          .querySelector('input[name="cid"]')
+                          .value
+            ev.preventDefault()
+            submitCheck(cid, "in")
+        }
+
+
     }, showRegister = () => {
         // show the registration page
         let n = document.getElementById("new-user")
@@ -76,11 +82,19 @@ document.addEventListener("DOMContentLoaded", ev => {
                 return response.json()
             }).then(d => {
                 localStorage.setItem("cut-covid-id", JSON.stringify(d))
-                localStorage.setItem("cut-covid-firstci", true)
                 n.classList.add("hidden")
-                showCheckin(d)
+                showThanks(`<h1>Thank you for registering</h1>
+                            <h2>Your CID is ${d.cid}</h2>`)
             })
         }
+    }, showThanks = msg => {
+        Array.from(document.body.children).forEach(e => {
+            if (e.id=="thanks")
+                e.classList.remove("hidden")
+            else
+                e.classList.add("hidden")
+        })
+        document.getElementById("note").innerHTML = msg
     }
     const urlParams = new URLSearchParams(window.location.search)
 

@@ -32,6 +32,19 @@
             </div>
         </form>
     </div>
+    <div id="checkin-cid" class="hidden">
+        <form name="checkinCid" class="pure-form pure-form-aligned">
+            <div class="pure-control-group">
+                <label for="cid">CID</label>
+                <input id="cid" name="cid" size="6" />
+            </div><div class="pure-controls">
+                <button class="pure-button pure-button-primary">
+                    Check In
+                </button>
+            </div>
+        </form>
+    </div>
+    <!-- Check in/out display -->
     <div id="known-user" class="hidden">
         <form id="checkin" name="checkin" class="pure-form pure-form-aligned">
             <div class="pure-control-group">
@@ -47,6 +60,10 @@
                 <button id="checkin-button" class="pure-button pure-button-primary">
                     Check In
                 </button>
+                &nbsp;&nbsp; &nbsp;&nbsp;
+                <a id="register-cid-link" nohref title="Phoneless Register">
+                    Register for another
+                </a>
             </div>
         </form>
         <hr />
@@ -59,8 +76,8 @@
         </form>
     </div>
     <div id="thanks" class="hidden">
-        <h2>Thank you for checking <span id="thanks-type"></span></h2>
-        <p>(You can close the this tab now)</p>
+        <div id="note"></div>
+        <a onclick="location.reload(); return false" href="#">Back to Squae One</a>
     </div>
 
     <div id="loading">Loading</div>

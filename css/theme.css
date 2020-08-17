@@ -2,6 +2,8 @@ body {
     margin: 2vh 2vw;
 }
 
+body>div { margin: 2em auto; }
+
 hr {
     width: 66%;
     margin: 5% auto;
@@ -17,6 +19,14 @@ form {
     text-align: center;
 }
 #thanks {
-    width: 80%;
-    margin: 1em auto;
+    text-align: center;
+}
+#note {
+    margin: 1em;
+}
+#register-cid-link:hover {
+    cursor: pointer;
+}
+#register-cid-link {
+    text-decoration: underline;
 }

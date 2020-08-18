@@ -1,3 +1,7 @@
+@media print {
+  footer {page-break-after: always;}
+}
+
 body {
     margin: 2vh 2vw;
 }

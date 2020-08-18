@@ -12,6 +12,8 @@
     <div id="message"></div>
     <div id="register" class="hidden">
         <form name="registration" class="pure-form pure-form-aligned">
+        <!-- a form in two stages, each stage wrapped in a <fieldset> -->
+          <fieldset>
             <h1>Welcome</h1>
             <p>Please register your place so we can cut covid together</p>
             <div class="pure-control-group">
@@ -40,15 +42,53 @@
             </div><div class="pure-control-group">
             <label for="company-id">Company ID</label>
             <input id="company-id" name="company_id" size="30" />
+            </div><div class="pure-control-group">
+            <label for="multizone" class="pure-checkbox">
+                <input id="multizone" type="checkbox"
+                       name="multizone" value="true" />
+                MultiZone
+            </label>
             </div><div class="pure-controls">
             <button type="submit" class="pure-button pure-button-primary">Register</button>
             </div>
+          </fieldset>
+          <fieldset class="hidden">
+            <div class="pure-control-group">
+            <label for="zoning">Zoning</label>
+            <select id="zoning" name="zoning">
+                <option value="rooms">Room/Office</option>
+                <option value="table">Table</option>
+                <option value="train">Train couch</option>
+                <option value="other">Other</option>
+            </select>
+            </div><div class="pure-control-group">
+                <label for="zoning-other">If other:</label>
+                <input id="zoning-other" name="zoningOther" size="20"/>
+            </div>
+            <fieldset id="zones">
+                <div class="pure-control-group">
+                    <label for="zone1">Zone 1 name:</label>
+                    <input id="zone1" name="zone1" size="20" default="1" />
+                </div><div class="pure-control-group">
+                    <label for="zone2">Zone 2 name:</label>
+                    <input id="zone2" name="zone2" size="20" default="1" />
+                </div><div class="pure-control-group">
+                    <label for="zone3">Zone 3 name:</label>
+                    <input id="zone3" name="zone3" size="20" default="1" />
+                </div>
+            </fieldset>
+            <div class="pure-controls">
+                <button type="button" id="add-zone" class="pure-button pure-button-primary">+</button>
+                <button type="submit" class="pure-button pure-button-primary">Register</button>
+            </div>
+          </fieldset>
         </form>
     </div>
     <div id="sign" class="hidden"> 
         <h1>Please scan the code below to check in</h1>
         <div id="qrcode"></div>
         <a id="short-url"></a>
+        <footer>Please visit us at https://github.com/cut-covid</footer>
     </div>
     <script src="/dist/hub.js"></script>
 </body>

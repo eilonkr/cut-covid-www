@@ -7,11 +7,11 @@
     "lib": "lib"
   },
   "dependencies": {
-    "qrcode-generator-es6": "^1.1.4",
-    "rollup": "^2.23.1"
+    "qrcode-generator-es6": "^1.1.4"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^9.0.0"
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "rollup": "^2.23.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

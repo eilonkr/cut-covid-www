@@ -84,6 +84,8 @@ document.addEventListener("DOMContentLoaded", ev => {
                     throw new Error(`HTTP error! status: ${response.status}`)
                 return response.json()
             }).then(d => {
+                //TODO: remove this when when the server supports multizone
+                d.zones = params.zones
                 localStorage.setItem("cut-covid-hubid", JSON.stringify(d))
                 document.getElementById("register").classList.add("hidden")
                 showSign(d)
@@ -91,18 +93,32 @@ document.addEventListener("DOMContentLoaded", ev => {
         }
     }, showSign = (hub) => {
         // 
-        const   url = urls.web.check + hub.id,
-                sign = document.getElementById("sign"),
-                short = document.getElementById("short-url")
-        //TODO: shrinken the url
-        short.setAttribute("href", url)
-        short.innerHTML = url
-        const qr = new qrcode(0, 'H');
-        qr.addData(url);
-        qr.make();
-        document.getElementById("qrcode").innerHTML = qr.createSvgTag({cellSize:4})
-        sign.querySelector("svg").setAttribute("width", "500")
+        let zones = hub.zones || [ "" ],
+            sign = document.getElementById("sign")
+            
         sign.classList.remove("hidden")
+        zones.forEach((z, i) => {
+            const   url = `${urls.web.check}${hub.id}.${i}`,
+                    name = sign.querySelector("h1"),
+                    zone = sign.querySelector("h2"),
+                    short = sign.querySelector(".short-url")
+            name.innerHTML = hub.name
+            zone.innerHTML = z
+
+            //TODO: shrinken the url
+            short.setAttribute("href", url)
+            short.innerHTML = url
+            const qr = new qrcode(0, 'H');
+            qr.addData(url);
+            qr.make();
+            sign.querySelector(".qrcode").innerHTML = qr.createSvgTag({cellSize:4})
+            sign.querySelector("svg").setAttribute("width", "500")
+            // if it's not the last one, prepare next sign
+            if (i < zones.length - 1) {
+                sign = sign.cloneNode(true)
+                document.body.appendChild(sign)
+            }
+        })
     }
     let id = localStorage.getItem("cut-covid-hubid")
     if (!id)

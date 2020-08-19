@@ -84,14 +84,16 @@
           </fieldset>
         </form>
     </div>
-    <div id="sign" class="hidden"> 
-        <h1></h1>
-        <h2></h2>
-        <h3>Please scan the code below to check in</h3>
-        <div class="qrcode"></div>
-        <a class="short-url"></a>
-        <footer>to learn more about the project: https://github.com/cut-covid</footer>
-    </div>
+    <template id="sign-template" class="hidden">
+        <div class="sign"> 
+            <h1></h1>
+            <h2></h2>
+            <h3>Please scan the code below to check in</h3>
+            <div class="qrcode"></div>
+            <a class="short-url"></a>
+            <footer>to learn more about the project: https://github.com/cut-covid</footer>
+        </div>
+    </template>
     <script src="/dist/hub.js"></script>
 </body>
 </html>

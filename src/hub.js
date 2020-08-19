@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", ev => {
 
             zones++
             e.classList.add("pure-control-group")
-            e.innerHTML = `<label for="zone${zones}1">Zone ${zones} name:</label>
-                    <input id="${zones}" name="${zones}" size="20" default="${zones}" />`
+            e.innerHTML = `<label for="zone${zones}">Zone ${zones} name:</label>
+                    <input id="zone${zones}" name="zone${zones}" size="20" />`
             document.getElementById("zones").appendChild(e)
         }
         document.registration.onsubmit = ev => {
@@ -91,34 +91,28 @@ document.addEventListener("DOMContentLoaded", ev => {
                 showSign(d)
             })
         }
-    }, showSign = (hub) => {
-        // 
-        let zones = hub.zones || [ "" ],
-            sign = document.getElementById("sign")
-            
-        sign.classList.remove("hidden")
-        zones.forEach((z, i) => {
-            const   url = `${urls.web.check}${hub.id}.${i}`,
-                    name = sign.querySelector("h1"),
-                    zone = sign.querySelector("h2"),
-                    short = sign.querySelector(".short-url")
-            name.innerHTML = hub.name
-            zone.innerHTML = z
+    }, addSign = (url, hub , zone)  => {
+        const sign = document.getElementById("sign-template").content.cloneNode(true),
+              short = sign.querySelector(".short-url")
+        sign.querySelector("h1").innerHTML = hub
+        sign.querySelector("h2").innerHTML = zone
 
-            //TODO: shrinken the url
-            short.setAttribute("href", url)
-            short.innerHTML = url
-            const qr = new qrcode(0, 'H');
-            qr.addData(url);
-            qr.make();
-            sign.querySelector(".qrcode").innerHTML = qr.createSvgTag({cellSize:4})
-            sign.querySelector("svg").setAttribute("width", "500")
-            // if it's not the last one, prepare next sign
-            if (i < zones.length - 1) {
-                sign = sign.cloneNode(true)
-                document.body.appendChild(sign)
-            }
-        })
+        //TODO: shrinken the url
+        short.setAttribute("href", url)
+        short.innerHTML = url
+        const qr = new qrcode(0, 'H');
+        qr.addData(url);
+        qr.make();
+        sign.querySelector(".qrcode").innerHTML = qr.createSvgTag({cellSize:4})
+        sign.querySelector("svg").setAttribute("width", "500")
+        // if it's not the last one, prepare next sign
+        document.body.appendChild(sign)
+    }, showSign = (hub) => {
+        addSign(`${urls.web.check}${hub.id}`, hub.name, "")
+        if (hub.zones) 
+            hub.zones.forEach((z, i) => 
+                addSign(`${urls.web.check}${hub.id}.${i}`, hub.name, z))
+
     }
     let id = localStorage.getItem("cut-covid-hubid")
     if (!id)

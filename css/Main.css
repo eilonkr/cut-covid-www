@@ -144,3 +144,7 @@
 .checkout-form {
   text-align: center;
 }
+
+fieldset {
+  border: 0 none;
+}

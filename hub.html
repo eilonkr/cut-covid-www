@@ -5,54 +5,71 @@
     <meta name="theme-color" content="#222831" />
     <link rel="stylesheet" href="/css/theme.css" />
     <link rel="stylesheet" href="/css/pure-min.css" />
+    <link rel="stylesheet" href="/css/Main.css" />
     <link rel="manifest" href="/hub_manifest.json" />
     <title>Hub Registration</title>
   </head>
   <body>
+    <div class="header-div">
+      <img src="./img/pass.png" class="header-pass" />
+      <p class="header-resize">GreenSite Pass</p>
+      <p>Your Green Pass to normal life</p>
+    </div>
     <div id="message"></div>
     <div id="register" class="hidden">
-      <form name="registration" class="pure-form pure-form-aligned">
+      <form name="registration" class="form-main">
         <!-- a form in two stages, each stage wrapped in a <fieldset> -->
         <fieldset>
-          <h1>Welcome Friend!</h1>
-          <p>Please register your place so we can cut covid together</p>
+          <p class="p-color-text">Hub Registartion</p>
+          <p>Register your hub or business to work with GreenSite Pass.</p>
           <div class="pure-control-group">
-            <label for="name">Name</label>
-            <input id="name" name="name" size="30" required />
+            <input
+              id="name"
+              name="name"
+              size="30"
+              required
+              class="inp-reg"
+              placeholder="  Name"
+            />
           </div>
           <div class="pure-control-group">
-            <label for="address">Address</label>
-            <input id="address" name="address" size="30" required />
+            <input
+              id="address"
+              name="address"
+              size="30"
+              required
+              class="inp-reg"
+              placeholder="  Address"
+            />
           </div>
           <div class="pure-control-group">
-            <label for="type">Type</label>
-            <select id="type" name="type">
-              <option value="cafe">Cafe</option>
-              <option value="resturant">Resturant</option>
-              <option value="gym">Gym</option>
-              <option value="other">Other</option>
-            </select>
+            <input
+              id="contact-name"
+              name="contact_name"
+              size="30"
+              required
+              class="inp-reg"
+              placeholder="  Contact Name"
+            />
           </div>
           <div class="pure-control-group">
-            <label for="other">If other:</label>
-            <input id="other" name="other" size="20" />
-          </div>
-          <div class="pure-control-group">
-            <label for="contact-name">Contact Name</label>
-            <input id="contact-name" name="contact_name" size="30" required />
-          </div>
-          <div class="pure-control-group">
-            <label for="contact-phone">Contact Phone</label>
             <input
               id="contact-phone"
               name="contact_details"
               size="30"
               required
+              class="inp-reg"
+              placeholder="  Contact Phone"
             />
           </div>
           <div class="pure-control-group">
-            <label for="company-id">Company ID</label>
-            <input id="company-id" name="company_id" size="30" />
+            <input
+              id="company-id"
+              name="company_id"
+              size="30"
+              class="inp-reg"
+              placeholder="  Company ID"
+            />
           </div>
           <div class="pure-control-group">
             <label for="multizone" class="pure-checkbox">
@@ -64,9 +81,28 @@
               />
               MultiZone
             </label>
+            <br />
+            <div class="pure-control-group">
+              <label for="type">Type</label>
+              <select id="type" name="type" class="select-inp">
+                <option value="cafe">Cafe</option>
+                <option value="resturant">Resturant</option>
+                <option value="gym">Gym</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="pure-control-group">
+              <input
+                id="other"
+                name="other"
+                size="20"
+                class="inp-reg"
+                placeholder="  If other"
+              />
+            </div>
           </div>
           <div class="pure-controls">
-            <button type="submit" class="pure-button pure-button-primary">
+            <button type="submit" class="btn-reg">
               Register
             </button>
           </div>
@@ -74,7 +110,7 @@
         <fieldset class="hidden">
           <div class="pure-control-group">
             <label for="zoning">Zoning</label>
-            <select id="zoning" name="zoning">
+            <select id="zoning" name="zoning" class="select-inp">
               <option value="rooms">Room/Office</option>
               <option value="table">Table</option>
               <option value="train">Train couch</option>
@@ -82,32 +118,51 @@
             </select>
           </div>
           <div class="pure-control-group">
-            <label for="zoning-other">If other:</label>
-            <input id="zoning-other" name="zoningOther" size="20" />
+            <input
+              id="zoning-other"
+              name="zoningOther"
+              size="20"
+              class="inp-reg"
+              placeholder="  If other"
+            />
           </div>
           <fieldset id="zones">
             <div class="pure-control-group">
-              <label for="zone1">Zone 1 name:</label>
-              <input id="zone1" name="zone1" size="20" default="1" />
+              <input
+                id="zone1"
+                name="zone1"
+                size="20"
+                default="1"
+                class="inp-reg"
+                placeholder="Zone 1 name"
+              />
             </div>
             <div class="pure-control-group">
-              <label for="zone2">Zone 2 name:</label>
-              <input id="zone2" name="zone2" size="20" default="1" />
+              <input
+                id="zone2"
+                name="zone2"
+                size="20"
+                default="1"
+                class="inp-reg"
+                placeholder="Zone 2 name"
+              />
             </div>
             <div class="pure-control-group">
-              <label for="zone3">Zone 3 name:</label>
-              <input id="zone3" name="zone3" size="20" default="1" />
+              <input
+                id="zone3"
+                name="zone3"
+                size="20"
+                default="1"
+                class="inp-reg"
+                placeholder="Zone 3 name"
+              />
             </div>
           </fieldset>
           <div class="pure-controls">
-            <button
-              type="button"
-              id="add-zone"
-              class="pure-button pure-button-primary"
-            >
+            <button type="button" id="add-zone" class="btn-reg">
               +
             </button>
-            <button type="submit" class="pure-button pure-button-primary">
+            <button type="submit" class="btn-reg">
               Register
             </button>
           </div>

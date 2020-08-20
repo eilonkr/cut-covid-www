@@ -1,86 +1,128 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>Entry - cut-covid</title>
-  <link rel="stylesheet" href="/css/theme.css" />
-  <link rel="stylesheet" href="/css/pure-min.css" />
-</head>
-<body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Entry - cut-covid</title>
+    <link rel="stylesheet" href="/css/theme.css" />
+    <link rel="stylesheet" href="/css/Main.css" />
+  </head>
+  <body>
+    <div class="header-div">
+      <img src="./img/pass.png" class="header-pass" />
+      <p class="header-resize">GreenSite Pass</p>
+      <p>Your Green Pass to normal life</p>
+    </div>
     <div id="message"></div>
     <div id="new-user" class="hidden">
-        <form id="register" name="register" class="pure-form pure-form-aligned">
-            <h1>Welcome!</h1>
-            <p>As this is the first time you check in we will create
-                an ID for you and store it on your device.
-                The phone number will only be used to notify you
-                when we've traced a covid contact.
-            </p>
-            <div class="pure-control-group">
-                <label for="phone">Phone Number</label>
-                <input id="phone" name="phone" type="tel" required />
-            </div><div class="pure-control-group">
-                <label for="three">Last 3 Numbers of ID</label>
-                <input id="three" name="three" size="3" required />
-            </div><div class="pure-control-group">
-                <label for="name">Name</label>
-                <input id="name" name="name" size="20" placeholder="optional" />
-            </div><div class="pure-controls">
-                <button id="register-button" class="pure-button pure-button-primary">
-                    Register
-                </button>
-            </div>
-        </form>
+      <form id="register" name="register" class="form-main">
+        <p class="p-color-text">Individual Registartion</p>
+        <p>Fill in this short form to check-in at GreenSite Pass hubs.</p>
+        <div class="pure-control-group">
+          <input
+            id="phone"
+            name="phone"
+            placeholder="  Phone Number"
+            class="inp-reg"
+            type="tel"
+            required
+          />
+        </div>
+        <div class="pure-control-group">
+          <input
+            id="three"
+            name="three"
+            placeholder="  Last 3 Numbers of ID"
+            class="inp-reg"
+            required
+          />
+        </div>
+        <div class="pure-control-group">
+          <input
+            id="name"
+            name="name"
+            size="20"
+            placeholder="  Name"
+            class="inp-reg"
+          />
+        </div>
+        <div class="pure-controls">
+          <button id="register-button" class="btn-reg">
+            Register
+          </button>
+        </div>
+      </form>
     </div>
     <div id="checkin-cid" class="hidden">
-        <form name="checkinCid" class="pure-form pure-form-aligned">
-            <div class="pure-control-group">
-                <label for="cid">CID</label>
-                <input id="cid" name="cid" size="6" />
-            </div><div class="pure-controls">
-                <button class="pure-button pure-button-primary">
-                    Check In
-                </button>
-            </div>
-        </form>
+      <form name="checkinCid" class="checkin-form">
+        <div class="pure-control-group">
+          <input
+            id="cid"
+            placeholder="  cid"
+            name="cid"
+            size="6"
+            class="inp-reg"
+          />
+        </div>
+        <div class="pure-controls">
+          <button class="btn-reg">
+            Check In
+          </button>
+        </div>
+      </form>
     </div>
     <!-- Check in/out display -->
     <div id="known-user" class="hidden">
-        <form id="checkin" name="checkin" class="pure-form pure-form-aligned">
-            <div class="pure-control-group">
-            <label for="duration">Duration</label>
-            <select name="duration">
-                <option value="15">15 minutes</option>
-                <option value="30" selected>30 minutes</option>
-                <option value="60">An Hour</option>
-                <option value="90">90 minutes</option>
-                <option value="120">Two Hours</option>
-            </select>
-            </div><div class="pure-controls">
-                <button id="checkin-button" class="pure-button pure-button-primary">
-                    Check In
-                </button>
-                &nbsp;&nbsp; &nbsp;&nbsp;
-                <a id="register-cid-link" nohref title="Phoneless Register">
-                    Register for another
-                </a>
-            </div>
-        </form>
-        <hr />
-        <form name="checkout" id="checkout" class="pure-form pure-form-aligned">
-            <div class="pure-controls">
-                <button id="checkout-button" class="pure-button pure-button-primary">
-                    Check Out
-                </button>
-            </div>
-        </form>
+      <form id="checkin" name="checkin" class="checkin-form">
+        <div class="pure-controls">
+          <button id="checkin-button" class="check-img-btn">
+            <img src="./img/checkin.png" alt="img" class="check-img" />
+          </button>
+          &nbsp;&nbsp; &nbsp;&nbsp;
+          <br />
+          <a
+            id="register-cid-link"
+            nohref
+            title="Phoneless Register"
+            class="checkin-another"
+          >
+            Register for another
+          </a>
+        </div>
+        <br />
+        <div class="pure-control-group">
+          <label for="duration">Automatic check-out time:</label>
+          <select name="duration" class="select-inp">
+            <option value="15">15 minutes</option>
+            <option value="30" selected>30 minutes</option>
+            <option value="60">An Hour</option>
+            <option value="90">90 minutes</option>
+            <option value="120">Two Hours</option>
+          </select>
+        </div>
+      </form>
+      <form name="checkout" id="checkout" class="checkout-form">
+        <div class="pure-controls">
+          <button id="checkout-button" class="check-img-btn">
+            <img src="./img/checkout.png" alt="img" class="check-img" />
+          </button>
+        </div>
+      </form>
     </div>
     <div id="thanks" class="hidden">
+      <div class="cidgrant-inner">
+        <img src="./img/ok.png" class="img-resize" />
         <div id="note"></div>
-        <a onclick="location.reload(); return false" href="#">Back to Squae One</a>
+        <a
+          onclick="location.reload(); return false"
+          href="#"
+          class="link-normal"
+          >Back to Squae One</a
+        >
+        <p class="cidgrant-thanks">Thanks for using GreenSite Pass!</p>
+      </div>
     </div>
 
     <div id="loading">Loading</div>
-  <script src="/dist/check.js"></script>
-</body>
+    <script src="/dist/check.js"></script>
+  </body>
 </html>

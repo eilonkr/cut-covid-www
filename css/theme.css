@@ -1,36 +1,39 @@
 @media print {
-  footer {page-break-after: always;}
+  footer {
+    page-break-after: always;
+  }
 }
 
 body {
-    margin: 2vh 2vw;
+  margin: 0;
 }
 
-body>div { margin: 2em auto; }
+body > div {
+}
 
 hr {
-    width: 66%;
-    margin: 5% auto;
+  width: 66%;
+  margin: 5% auto;
 }
 form {
-    margin: 2vh 2vw;
+  margin: 2vh 2vw;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 .sign {
-    text-align: center;
+  text-align: center;
 }
 #thanks {
-    text-align: center;
+  text-align: center;
 }
 #note {
-    margin: 1em;
+  margin: 1em;
 }
 #register-cid-link:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 #register-cid-link {
-    text-decoration: underline;
+  text-decoration: underline;
 }

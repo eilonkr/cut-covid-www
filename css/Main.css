@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap");
+
+* {
+  font-family: "PT Sans", sans-serif;
+}
+
+:root {
+  --main1: #37c98c;
+  --main2: #70e0b2;
+  --main3: #898989;
+}
+
+/*registration*/
+.header-div {
+  color: whitesmoke;
+  text-align: center;
+  background-image: linear-gradient(to right, var(--main2), var(--main1));
+  padding: 1em;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  line-height: 1px;
+}
+
+.header-resize {
+  font-size: 25px;
+}
+
+.header-pass {
+  height: 50px;
+  width: 50px;
+}
+
+.form-main {
+  width: 300px;
+  margin: 0px auto;
+  padding: 0em 1em;
+}
+
+.p-color-text {
+  color: var(--main1);
+  font-size: 20px;
+}
+
+.inp-reg {
+  border: 1px solid var(--main1);
+  font-size: 1em;
+  margin: 10px 0;
+  border-radius: 50px;
+  padding: 5px 0px;
+  color: black;
+  width: 99%;
+}
+
+.inp-reg::placeholder {
+  color: var(--main2);
+}
+
+.btn-reg {
+  background: var(--main1);
+  color: whitesmoke;
+  margin: 10px 0;
+  border: none;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 50px;
+  width: 100%;
+}
+
+/*CIDGrant*/
+
+.cidgrant-inner {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, var(--main2), var(--main1));
+  color: white;
+  line-height: 10px;
+}
+
+.img-resize {
+  margin: 10vh 0 20px 0;
+  height: 40px;
+  width: 40px;
+}
+
+.link-normal {
+  background: white;
+  color: var(--main1);
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.192);
+  border-radius: 50px;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 0 2em;
+  line-height: 50px;
+}
+
+/*checkin*/
+
+.check-img {
+  outline: none;
+  cursor: pointer;
+  height: 150px;
+  margin: 0px auto;
+}
+
+.check-img-btn {
+  text-align: center;
+  outline: none;
+  background: none;
+  border: none;
+  margin: 20px;
+}
+
+.checkin-form {
+  text-align: center;
+}
+
+.select-inp {
+  border: 1px solid var(--main1);
+  font-size: 1em;
+  margin: 10px 0;
+  border-radius: 50px;
+  padding: 0px 5px;
+  color: var(--main1);
+  background: none;
+  width: 100px;
+}
+
+.checkin-another {
+  text-decoration: none;
+  color: white;
+  padding: 0.2em 1em;
+  border-radius: 50px;
+  font-size: 18px;
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.192);
+  background: var(--main1);
+}
+
+.checkout-form {
+  text-align: center;
+}

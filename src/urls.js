@@ -6,6 +6,6 @@ export const urls = {
   },
   web: {
     check:
-      "http://freepass-resources.s3-website-eu-west-1.amazonaws.com/check.html#",
+      "http://hub.greenpass.site/check.html#",
   },
 };

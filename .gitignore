@@ -1,2 +1,3 @@
 dist/
 hub.sw.bundle.js
+/node_modules

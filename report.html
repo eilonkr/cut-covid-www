@@ -1,36 +1,73 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>Report Infection - cut-covid</title>
-  <link rel="stylesheet" href="/css/theme.css" />
-  <link rel="stylesheet" href="/css/pure-min.css" />
-</head>
-<body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Report Infection - cut-covid</title>
+    <link rel="stylesheet" href="/css/theme.css" />
+    <link rel="stylesheet" href="/css/pure-min.css" />
+    <link rel="stylesheet" href="/css/Main.css" />
+  </head>
+  <body>
+    <div class="header-div">
+      <img src="./img/pass.png" class="header-pass" />
+      <p class="header-resize">GreenSite Pass</p>
+      <p>Your Green Pass to normal life</p>
+    </div>
     <div id="message"></div>
-        <form id="report" name="report" class="pure-form pure-form-aligned">
-            <h1>Report Positive Test Result</h1>
-            <div class="pure-control-group">
-                <label for="phone">Phone Number</label>
-                <input id="phone" name="phone" type="tel" required />
-            </div><div class="pure-control-group">
-                <label for="id">ID</label>
-                <input id="id" name="id" size="10" placeholder="optional" />
-            </div><div class="pure-control-group">
-                <label for="pnum">Patient Number</label>
-                <input id="pnum" name="pnum" size="10" placeholder="optional" />
-            </div><div class="pure-control-group">
-                <label for="test_date">Test Date</label>
-                <input id="test_date" name="test_date" type="date" placeholder="optional" />
-            </div><div class="pure-control-group">
-                <label for="q_date">Quarntine Start Date</label>
-                <input id="q" name="q" type="date" placeholder="optional" />
-            </div><div class="pure-controls">
-                <button id="register-button" class="pure-button pure-button-primary">
-                    Report
-                </button>
-            </div>
-        </form>
-  <script src="/dist/report.js"></script>
-</body>
+    <form id="report" name="report" class="form-main">
+      <p class="p-color-text">Report Positive Test Result</p>
+      <div class="pure-control-group">
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder="  Phone Number"
+          required
+          class="inp-reg"
+        />
+      </div>
+      <div class="pure-control-group">
+        <input
+          id="id"
+          name="id"
+          size="10"
+          placeholder="  ID *optional"
+          class="inp-reg"
+        />
+      </div>
+      <div class="pure-control-group">
+        <input
+          id="pnum"
+          name="pnum"
+          size="10"
+          placeholder="  Patient Number *optional"
+          class="inp-reg"
+        />
+      </div>
+      <div class="pure-control-group">
+        <input
+          id="test_date"
+          name="test_date"
+          type="date"
+          placeholder="  Test Date *optional"
+          class="inp-reg"
+        />
+      </div>
+      <div class="pure-control-group">
+        <input
+          id="q"
+          name="q"
+          type="date"
+          class="inp-reg"
+          placeholder="  Quarntine Start Date *optional"
+        />
+      </div>
+      <div class="pure-controls">
+        <button id="register-button" class="btn-reg">
+          Report
+        </button>
+      </div>
+    </form>
+    <script src="/dist/report.js"></script>
+  </body>
 </html>

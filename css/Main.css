@@ -19,6 +19,7 @@
   border-bottom-right-radius: 50%;
   border-bottom-left-radius: 50%;
   line-height: 1px;
+  margin: 0;
 }
 
 .header-resize {
@@ -42,6 +43,7 @@
 }
 
 .inp-reg {
+  outline: none;
   border: 1px solid var(--main1);
   font-size: 1em;
   margin: 10px 0;

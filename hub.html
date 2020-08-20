@@ -1,99 +1,131 @@
 <!DOCTYPE html>
 <html lang="he">
-<head>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <meta name="theme-color" content="#222831">
-  <link rel="stylesheet" href="/css/theme.css" />
-  <link rel="stylesheet" href="/css/pure-min.css" />
-  <link rel='manifest' href='/hub_manifest.json'>
-  <title>Hub Registration</title>
-</head>
-<body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#222831" />
+    <link rel="stylesheet" href="/css/theme.css" />
+    <link rel="stylesheet" href="/css/pure-min.css" />
+    <link rel="manifest" href="/hub_manifest.json" />
+    <title>Hub Registration</title>
+  </head>
+  <body>
     <div id="message"></div>
     <div id="register" class="hidden">
-        <form name="registration" class="pure-form pure-form-aligned">
+      <form name="registration" class="pure-form pure-form-aligned">
         <!-- a form in two stages, each stage wrapped in a <fieldset> -->
-          <fieldset>
-            <h1>Welcome Friend!</h1>
-            <p>Please register your place so we can cut covid together</p>
-            <div class="pure-control-group">
+        <fieldset>
+          <h1>Welcome Friend!</h1>
+          <p>Please register your place so we can cut covid together</p>
+          <div class="pure-control-group">
             <label for="name">Name</label>
             <input id="name" name="name" size="30" required />
-            </div><div class="pure-control-group">
+          </div>
+          <div class="pure-control-group">
             <label for="address">Address</label>
             <input id="address" name="address" size="30" required />
-            </div><div class="pure-control-group">
+          </div>
+          <div class="pure-control-group">
             <label for="type">Type</label>
             <select id="type" name="type">
-                <option value="cafe">Cafe</option>
-                <option value="resturant">Resturant</option>
-                <option value="gym">Gym</option>
-                <option value="other">Other</option>
+              <option value="cafe">Cafe</option>
+              <option value="resturant">Resturant</option>
+              <option value="gym">Gym</option>
+              <option value="other">Other</option>
             </select>
-            </div><div class="pure-control-group">
+          </div>
+          <div class="pure-control-group">
             <label for="other">If other:</label>
-            <input id="other" name="other" size="20"/>
-            </div><div class="pure-control-group">
+            <input id="other" name="other" size="20" />
+          </div>
+          <div class="pure-control-group">
             <label for="contact-name">Contact Name</label>
             <input id="contact-name" name="contact_name" size="30" required />
-            </div><div class="pure-control-group">
+          </div>
+          <div class="pure-control-group">
             <label for="contact-phone">Contact Phone</label>
-            <input id="contact-phone" name="contact_details" size="30" required />
-            </div><div class="pure-control-group">
+            <input
+              id="contact-phone"
+              name="contact_details"
+              size="30"
+              required
+            />
+          </div>
+          <div class="pure-control-group">
             <label for="company-id">Company ID</label>
             <input id="company-id" name="company_id" size="30" />
-            </div><div class="pure-control-group">
+          </div>
+          <div class="pure-control-group">
             <label for="multizone" class="pure-checkbox">
-                <input id="multizone" type="checkbox"
-                       name="multizone" value="true" />
-                MultiZone
+              <input
+                id="multizone"
+                type="checkbox"
+                name="multizone"
+                value="true"
+              />
+              MultiZone
             </label>
-            </div><div class="pure-controls">
-            <button type="submit" class="pure-button pure-button-primary">Register</button>
-            </div>
-          </fieldset>
-          <fieldset class="hidden">
-            <div class="pure-control-group">
+          </div>
+          <div class="pure-controls">
+            <button type="submit" class="pure-button pure-button-primary">
+              Register
+            </button>
+          </div>
+        </fieldset>
+        <fieldset class="hidden">
+          <div class="pure-control-group">
             <label for="zoning">Zoning</label>
             <select id="zoning" name="zoning">
-                <option value="rooms">Room/Office</option>
-                <option value="table">Table</option>
-                <option value="train">Train couch</option>
-                <option value="other">Other</option>
+              <option value="rooms">Room/Office</option>
+              <option value="table">Table</option>
+              <option value="train">Train couch</option>
+              <option value="other">Other</option>
             </select>
-            </div><div class="pure-control-group">
-                <label for="zoning-other">If other:</label>
-                <input id="zoning-other" name="zoningOther" size="20"/>
+          </div>
+          <div class="pure-control-group">
+            <label for="zoning-other">If other:</label>
+            <input id="zoning-other" name="zoningOther" size="20" />
+          </div>
+          <fieldset id="zones">
+            <div class="pure-control-group">
+              <label for="zone1">Zone 1 name:</label>
+              <input id="zone1" name="zone1" size="20" default="1" />
             </div>
-            <fieldset id="zones">
-                <div class="pure-control-group">
-                    <label for="zone1">Zone 1 name:</label>
-                    <input id="zone1" name="zone1" size="20" default="1" />
-                </div><div class="pure-control-group">
-                    <label for="zone2">Zone 2 name:</label>
-                    <input id="zone2" name="zone2" size="20" default="1" />
-                </div><div class="pure-control-group">
-                    <label for="zone3">Zone 3 name:</label>
-                    <input id="zone3" name="zone3" size="20" default="1" />
-                </div>
-            </fieldset>
-            <div class="pure-controls">
-                <button type="button" id="add-zone" class="pure-button pure-button-primary">+</button>
-                <button type="submit" class="pure-button pure-button-primary">Register</button>
+            <div class="pure-control-group">
+              <label for="zone2">Zone 2 name:</label>
+              <input id="zone2" name="zone2" size="20" default="1" />
+            </div>
+            <div class="pure-control-group">
+              <label for="zone3">Zone 3 name:</label>
+              <input id="zone3" name="zone3" size="20" default="1" />
             </div>
           </fieldset>
-        </form>
+          <div class="pure-controls">
+            <button
+              type="button"
+              id="add-zone"
+              class="pure-button pure-button-primary"
+            >
+              +
+            </button>
+            <button type="submit" class="pure-button pure-button-primary">
+              Register
+            </button>
+          </div>
+        </fieldset>
+      </form>
     </div>
     <template id="sign-template" class="hidden">
-        <div class="sign"> 
-            <h1></h1>
-            <h2></h2>
-            <h3>Please scan the code below to check in</h3>
-            <div class="qrcode"></div>
-            <a class="short-url"></a>
-            <footer>to learn more about the project: https://github.com/cut-covid</footer>
-        </div>
+      <div class="sign">
+        <h1></h1>
+        <h2></h2>
+        <h3>Please scan the code below to check in</h3>
+        <div class="qrcode"></div>
+        <a class="short-url"></a>
+        <footer>
+          to learn more about the project: https://github.com/cut-covid
+        </footer>
+      </div>
     </template>
     <script src="/dist/hub.js"></script>
-</body>
+  </body>
 </html>

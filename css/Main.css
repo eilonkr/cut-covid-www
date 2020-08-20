@@ -6,7 +6,7 @@
 
 :root {
   --main1: #37c98c;
-  --main2: #70e0b2;
+  --main2: #2ff1a0;
   --main3: #898989;
 }
 
@@ -103,8 +103,8 @@
 .check-img {
   outline: none;
   cursor: pointer;
-  height: 150px;
-  margin: 0px auto;
+  width: 50%;
+  margin: 0 25%;
 }
 
 .check-img-btn {
@@ -131,10 +131,11 @@
 }
 
 .checkin-another {
-  text-decoration: none;
+  text-decoration: none !important;
   color: white;
   padding: 0.2em 1em;
   border-radius: 50px;
+  width: 100px;
   font-size: 18px;
   box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.192);
   background: var(--main1);

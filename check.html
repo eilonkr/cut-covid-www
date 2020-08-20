@@ -54,7 +54,8 @@
       </form>
     </div>
     <div id="checkin-cid" class="hidden">
-      <form name="checkinCid" class="checkin-form">
+      <br />
+      <form name="checkinCid" class="form-main">
         <div class="pure-control-group">
           <input
             id="cid"
@@ -90,18 +91,16 @@
           </a>
         </div>
         <br />
-        <div class="pure-control-group">
-          <label for="duration">Automatic check-out time:</label>
-          <select name="duration" class="select-inp">
-            <option value="15">15 minutes</option>
-            <option value="30" selected>30 minutes</option>
-            <option value="60">An Hour</option>
-            <option value="90">90 minutes</option>
-            <option value="120">Two Hours</option>
-          </select>
-        </div>
+        <label for="duration">Checkout time : </label>
+        <select name="duration" class="select-inp">
+          <option value="15">15 minutes</option>
+          <option value="30" selected>30 minutes</option>
+          <option value="60">An Hour</option>
+          <option value="90">90 minutes</option>
+          <option value="120">Two Hours</option>
+        </select>
       </form>
-      <form name="checkout" id="checkout" class="checkout-form">
+      <form name="checkout" id="checkout" class="checkin-form">
         <div class="pure-controls">
           <button id="checkout-button" class="check-img-btn">
             <img src="./img/checkout.png" alt="img" class="check-img" />

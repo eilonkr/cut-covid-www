@@ -13,5 +13,7 @@ jobs:
         aws-region: us-west-2
     - name: Build static site
       run: npm install && npm run-script build
-    - name: Deploy static site to S3 bucket
-      run: aws s3 sync ./ s3://freepass-resources/ --delete
+    - name: Deploy user site to S3 bucket
+      run: aws s3 sync ./ s3://site.greenpass.site/ --delete
+    - name: Deploy hub site to S3 bucket
+      run: aws s3 sync ./ s3://hub.greenpass.site/ --delete

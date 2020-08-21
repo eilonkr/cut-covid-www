@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", (ev) => {
 
         zones++;
         e.classList.add("pure-control-group");
-        e.innerHTML = `<input id="zone${zones}" name="zone${zones}" size="20"  class="inp-reg" placeholder="Zone ${zones} name:"/>`;
+        e.innerHTML = `<label for="zone${zones}">Zone ${zones} name:</label>
+                    <input id="zone${zones}" name="zone${zones}" size="20" />`;
         document.getElementById("zones").appendChild(e);
       };
       document.registration.onsubmit = (ev) => {
@@ -96,8 +97,8 @@ document.addEventListener("DOMContentLoaded", (ev) => {
           .getElementById("sign-template")
           .content.cloneNode(true),
         short = sign.querySelector(".short-url");
-      sign.querySelector("h1").innerHTML = hub;
-      sign.querySelector("h2").innerHTML = zone;
+      sign.querySelector("h2").innerHTML = hub;
+      sign.querySelector("h3").innerHTML = zone;
 
       //TODO: shrinken the url
       short.setAttribute("href", url);
@@ -108,7 +109,7 @@ document.addEventListener("DOMContentLoaded", (ev) => {
       sign.querySelector(".qrcode").innerHTML = qr.createSvgTag({
         cellSize: 4,
       });
-      sign.querySelector("svg").setAttribute("width", "500");
+      sign.querySelector("svg").setAttribute("width", "300");
       // if it's not the last one, prepare next sign
       document.body.appendChild(sign);
     },

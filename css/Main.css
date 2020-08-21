@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 
 * {
-  font-family: "PT Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 :root {
@@ -147,4 +147,64 @@
 
 fieldset {
   border: 0 none;
+}
+
+.types-flex {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.types-flex-item {
+  background: none;
+  margin: 5px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.11);
+  padding: 2px 5px;
+  color: var(--main1);
+  cursor: pointer;
+}
+
+.short-url {
+  color: var(--main1);
+  text-decoration: none;
+}
+
+.sign {
+  max-width: 310px;
+  margin: 1em auto;
+  background: whitesmoke;
+  padding: 0.5em;
+  border-radius: 10px;
+  background: none;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.11);
+}
+
+.sign h2 {
+  line-height: 0;
+}
+
+.sign h3 {
+  line-height: 0.5;
+}
+
+.hub-flex {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.print-btn {
+  background: var(--main1);
+  border-radius: 50px;
+  color: white;
+  font-size: 20px;
+  border: none;
+  padding: 0.1em 1em;
+  margin: 0.5em;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.212);
+}
+
+.print-btn img {
+  height: 16px;
+  margin-right: 5px;
 }

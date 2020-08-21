@@ -57,6 +57,74 @@
         </div>
       </form>
     </div>
+    <div id="checkout-after" class="hidden">
+      <form name="checkinCid" class="form-main">
+        <div class="pure-control-group">
+          <div class="link-reg-div">
+            <p>You are checkedin in</p>
+          </div>
+        </div>
+        <div class="pure-controls">
+          <button class="btn-out2">
+            Check out of zone
+          </button>
+        </div>
+        <div class="pure-controls">
+          <button class="btn-out">
+            Check out of hub
+          </button>
+        </div>
+        <button class="btn-out" onclick="location.reload(); return false">
+          Go Back
+        </button>
+        <div class="link-reg-div">
+          <img src="/img/info.png" alt="img" />
+          <a class="link-reg">Help & Info</a>
+        </div>
+      </form>
+    </div>
+    <div id="checkin-after" class="hidden">
+      <form name="checkinCid" class="form-main">
+        <div class="pure-control-group">
+          <div class="link-reg-div">
+            <p>You are already checkedin</p>
+          </div>
+          <input
+            id="azid"
+            placeholder="  Enter zone ID"
+            name="azid"
+            size="6"
+            class="inp-reg"
+          />
+        </div>
+        <div class="pure-controls">
+          <button class="btn-reg">
+            Register
+          </button>
+        </div>
+        <p class="more-text">
+          Registering for a zone greatly improves our accuracy and reduces your
+          risk of getting alerted.
+        </p>
+        <button class="btn-out" onclick="location.reload(); return false">
+          Go Back
+        </button>
+        <div class="link-reg-div">
+          <label for="duration">Checkout time : </label>
+          <select name="duration" class="select-inp">
+            <option value="15">15 minutes</option>
+            <option value="30" selected>30 minutes</option>
+            <option value="60">Hour</option>
+            <option value="90">90 minutes</option>
+            <option value="120">Two Hours</option>
+          </select>
+        </div>
+        <div class="link-reg-div">
+          <img src="/img/info.png" alt="img" />
+          <a class="link-reg">Help & Info</a>
+        </div>
+      </form>
+    </div>
     <div id="checkin-cid" class="hidden">
       <br />
       <form name="checkinCid" class="form-main">

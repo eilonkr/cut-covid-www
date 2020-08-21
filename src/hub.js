@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", (ev) => {
       sign.querySelector(".qrcode").innerHTML = qr.createSvgTag({
         cellSize: 4,
       });
-      sign.querySelector("svg").setAttribute("width", "300");
+      sign.querySelector("svg").setAttribute("width", "280");
       // if it's not the last one, prepare next sign
       document.body.appendChild(sign);
     },

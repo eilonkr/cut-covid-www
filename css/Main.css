@@ -82,6 +82,7 @@
   border-radius: 50px;
   width: 100%;
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.212);
+  cursor: pointer;
 }
 
 /*CIDGrant*/
@@ -227,4 +228,39 @@ fieldset {
 .print-btn img {
   height: 16px;
   margin-right: 5px;
+}
+
+.checkin-after {
+  z-index: 2;
+  height: 20vh;
+}
+
+.btn-out {
+  background: none;
+  color: black;
+  margin: 10px 0;
+  border: none;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 50px;
+  width: 100%;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.11);
+  cursor: pointer;
+}
+
+.btn-out2 {
+  background: none;
+  color: var(--main1);
+  margin: 10px 0;
+  border: none;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 50px;
+  width: 100%;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.11);
+  cursor: pointer;
+}
+
+.more-text {
+  font-size: 12px;
 }

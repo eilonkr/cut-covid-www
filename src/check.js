@@ -13,6 +13,14 @@ document.addEventListener("DOMContentLoaded", (ev) => {
       if (hubid.split(".")[1] == null) {
         url = urls.api.check + hubid.split(".")[0];
       }
+      // move to next screen
+      if (type == "in") {
+        document.getElementById("checkin-after").classList.remove("hidden");
+        document.getElementById("known-user").classList.add("hidden");
+      } else {
+        document.getElementById("checkout-after").classList.remove("hidden");
+        document.getElementById("known-user").classList.add("hidden");
+      }
       // send a check in to the tracker
       fetch(url, {
         headers: new Headers({
@@ -31,6 +39,7 @@ document.addEventListener("DOMContentLoaded", (ev) => {
           return response.json();
         })
         .then((data) => {
+          console.log("success");
           if (data.success) {
             showThanks(`<h2>Thank you for your check ${type}</h2>`);
           } else {

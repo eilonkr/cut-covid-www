@@ -5,7 +5,11 @@ document.addEventListener("DOMContentLoaded", (ev) => {
       let c = document.getElementById("checkin"),
         duration = c.querySelector('select[name="duration"]').value,
         hubid = location.hash.slice(1),
-        url = urls.api.check + hubid;
+        url =
+          urls.api.check +
+          hubid.split(".")[0] +
+          "/zone_id/" +
+          hubid.split(".")[1];
       // send a check in to the tracker
       fetch(url, {
         headers: new Headers({

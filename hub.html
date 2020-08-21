@@ -42,26 +42,7 @@
               placeholder="  Address"
             />
           </div>
-          <div class="pure-control-group">
-            <input
-              id="contact-name"
-              name="contact_name"
-              size="30"
-              required
-              class="inp-reg"
-              placeholder="  Contact Name"
-            />
-          </div>
-          <div class="pure-control-group">
-            <input
-              id="contact-phone"
-              name="contact_details"
-              size="30"
-              required
-              class="inp-reg"
-              placeholder="  Contact Phone"
-            />
-          </div>
+
           <div class="pure-control-group">
             <input
               id="company-id"
@@ -72,24 +53,37 @@
             />
           </div>
           <div class="pure-control-group">
-            <label for="multizone" class="pure-checkbox">
+            <label for="multizone">
               <input
                 id="multizone"
                 type="checkbox"
                 name="multizone"
                 value="true"
+                class="hub-checkbox"
               />
               MultiZone
             </label>
             <br />
             <div class="pure-control-group">
-              <label for="type">Type</label>
               <select id="type" name="type" class="select-inp">
                 <option value="cafe">Cafe</option>
                 <option value="resturant">Resturant</option>
                 <option value="gym">Gym</option>
                 <option value="other">Other</option>
               </select>
+            </div>
+            <p>Hub Type</p>
+            <div class="types-flex">
+              <p class="types-flex-item" value="cafe">Cafe</p>
+              <p class="types-flex-item" value="resturant">Resturant</p>
+              <p class="types-flex-item" value="gym">Gym</p>
+              <p class="types-flex-item" value="Market">Market</p>
+              <p class="types-flex-item" value="resturant">Resturant</p>
+              <p class="types-flex-item" value="Barber">Barber</p>
+              <p class="types-flex-item" value="cafe">Cafe</p>
+              <p class="types-flex-item" value="museum">Museum</p>
+              <p class="types-flex-item" value="Bar">Bar</p>
+              <p class="types-flex-item" value="other">Other</p>
             </div>
             <div class="pure-control-group">
               <input
@@ -98,6 +92,26 @@
                 size="20"
                 class="inp-reg"
                 placeholder="  If other"
+              />
+            </div>
+            <div class="pure-control-group">
+              <input
+                id="contact-name"
+                name="contact_name"
+                size="30"
+                required
+                class="inp-reg"
+                placeholder="  Contact Name"
+              />
+            </div>
+            <div class="pure-control-group">
+              <input
+                id="contact-phone"
+                name="contact_details"
+                size="30"
+                required
+                class="inp-reg"
+                placeholder="  Contact Phone"
               />
             </div>
           </div>
@@ -171,14 +185,16 @@
     </div>
     <template id="sign-template" class="hidden">
       <div class="sign">
-        <h1></h1>
         <h2></h2>
-        <h3>Please scan the code below to check in</h3>
+        <h3></h3>
         <div class="qrcode"></div>
-        <a class="short-url"></a>
-        <footer>
-          to learn more about the project: https://github.com/cut-covid
-        </footer>
+        <div class="hub-flex">
+          <img src="/img/link.png" alt="img" />
+          <a class="short-url"></a>
+        </div>
+        <button class="print-btn">
+          <img src="/img/printer.png" alt="img" />Print
+        </button>
       </div>
     </template>
     <script src="/dist/hub.js"></script>

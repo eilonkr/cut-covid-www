@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", (ev) => {
 
         zones++;
         e.classList.add("pure-control-group");
-        e.innerHTML = `<label for="zone${zones}">Zone ${zones} name:</label>
-                    <input id="zone${zones}" name="zone${zones}" size="20" />`;
+        e.innerHTML = `<input id="zone${zones}" name="zone${zones}" size="20" class="inp-reg"
+        placeholder="Zone ${zones} name"/>`;
         document.getElementById("zones").appendChild(e);
       };
       document.registration.onsubmit = (ev) => {

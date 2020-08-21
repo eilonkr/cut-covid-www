@@ -61,6 +61,9 @@
       <br />
       <form name="checkinCid" class="form-main">
         <div class="pure-control-group">
+          <div class="link-reg-div">
+            <p>Checkin for a different person</p>
+          </div>
           <input
             id="cid"
             placeholder="  cid"
@@ -71,8 +74,22 @@
         </div>
         <div class="pure-controls">
           <button class="btn-reg">
-            Check In
+            CheckIn Now
           </button>
+        </div>
+        <div class="link-reg-div">
+          <label for="duration">Checkout time : </label>
+          <select name="duration" class="select-inp">
+            <option value="15">15 minutes</option>
+            <option value="30" selected>30 minutes</option>
+            <option value="60">Hour</option>
+            <option value="90">90 minutes</option>
+            <option value="120">Two Hours</option>
+          </select>
+        </div>
+        <div class="link-reg-div">
+          <img src="/img/info.png" alt="img" />
+          <a class="link-reg">Help & Info</a>
         </div>
       </form>
     </div>
@@ -91,7 +108,7 @@
             title="Phoneless Register"
             class="checkin-another"
           >
-            Register for another
+            Register for another <img src="/img/user.png" alt="img" />
           </a>
         </div>
         <br />

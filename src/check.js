@@ -10,6 +10,9 @@ document.addEventListener("DOMContentLoaded", (ev) => {
           hubid.split(".")[0] +
           "/zone_id/" +
           hubid.split(".")[1];
+      if (hubid.split(".")[1] == null) {
+        url = urls.api.check + hubid.split(".")[0];
+      }
       // send a check in to the tracker
       fetch(url, {
         headers: new Headers({

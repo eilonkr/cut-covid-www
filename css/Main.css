@@ -199,7 +199,7 @@ fieldset {
   padding: 1em;
   border-radius: 10px;
   background: none;
-  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.11);
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.11);
 }
 
 .sign h2 {
@@ -223,7 +223,7 @@ fieldset {
   border: none;
   padding: 0.1em 1em;
   margin: 0.5em;
-  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.212);
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.212);
 }
 
 .print-btn img {
@@ -245,7 +245,7 @@ fieldset {
   padding: 5px;
   border-radius: 50px;
   width: 100%;
-  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.11);
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.11);
   cursor: pointer;
 }
 
@@ -258,7 +258,7 @@ fieldset {
   padding: 5px;
   border-radius: 50px;
   width: 100%;
-  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.11);
+  box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.11);
   cursor: pointer;
 }
 
@@ -269,6 +269,7 @@ fieldset {
 .more-text2 {
   color: var(--main4);
   font-size: 12px;
+  padding-top: 8px;
 }
 
 .gray-p {

@@ -87,27 +87,32 @@
       <form name="checkinCid" class="form-main">
         <div class="pure-control-group">
           <div class="link-reg-div">
-            <p>You are already checkedin</p>
+            <p>
+              You are already checkedin<label class="text-color2">
+                Betta cafe</label
+              >.
+            </p>
+            <p class="link-green">Check in for someone else ->|</p>
           </div>
           <input
             id="azid"
-            placeholder="  Enter zone ID"
+            placeholder="Enter zone ID"
             name="azid"
             size="6"
             class="inp-reg"
           />
         </div>
         <div class="pure-controls">
-          <button class="btn-reg">
+          <button class="btn-reg" onclick="location.reload(); return false">
             Register
           </button>
         </div>
-        <p class="more-text">
+        <p class="more-text2">
           Registering for a zone greatly improves our accuracy and reduces your
           risk of getting alerted.
         </p>
         <button class="btn-out" onclick="location.reload(); return false">
-          Go Back
+          Checkout
         </button>
         <div class="link-reg-div">
           <label for="duration">Checkout time : </label>
@@ -118,10 +123,6 @@
             <option value="90">90 minutes</option>
             <option value="120">Two Hours</option>
           </select>
-        </div>
-        <div class="link-reg-div">
-          <img src="/img/info.png" alt="img" />
-          <a class="link-reg">Help & Info</a>
         </div>
       </form>
     </div>
@@ -155,28 +156,36 @@
             <option value="120">Two Hours</option>
           </select>
         </div>
-        <div class="link-reg-div">
-          <img src="/img/info.png" alt="img" />
-          <a class="link-reg">Help & Info</a>
+        <div class="link-reg-div2">
+          <img src="/img/info2.png" alt="img" />
+          <p class="more-text2">By checking-in , I comply with the</p>
+          <a class="link-text2">Health Decleration.</a>
         </div>
       </form>
     </div>
     <!-- Check in/out display -->
     <div id="known-user" class="hidden">
       <form id="checkin" name="checkin" class="checkin-form">
+        <p class="font-bigger">
+          Welcome to<label class="text-color2"> Betta cafe</label>!
+        </p>
         <div class="pure-controls">
-          <button id="checkin-button" class="check-img-btn">
-            <img src="./img/checkin.png" alt="img" class="check-img" />
+          <button id="checkin-button" class="check-img-btn2">
+            <img src="./img/checkinnow.png" alt="img" class="check-img" />
           </button>
-          &nbsp;&nbsp; &nbsp;&nbsp;
+          <br />
+          <button id="checkout-button" class="check-img-btn2">
+            <img src="./img/checkoutbtn.png" alt="img" class="check-img" />
+          </button>
+          <br />
           <br />
           <a
             id="register-cid-link"
             nohref
             title="Phoneless Register"
-            class="checkin-another"
+            class="link-green"
           >
-            Register for another <img src="/img/user.png" alt="img" />
+            Checkin for someone else ->|
           </a>
         </div>
         <br />
@@ -190,10 +199,10 @@
         </select>
       </form>
       <form name="checkout" id="checkout" class="checkin-form">
-        <div class="pure-controls">
-          <button id="checkout-button" class="check-img-btn">
-            <img src="./img/checkout.png" alt="img" class="check-img" />
-          </button>
+        <div class="link-reg-div2">
+          <img src="/img/info2.png" alt="img" />
+          <p class="more-text2">By checking-in , I comply with the</p>
+          <a class="link-text2">Health Decleration.</a>
         </div>
       </form>
     </div>

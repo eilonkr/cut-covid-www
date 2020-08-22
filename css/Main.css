@@ -196,10 +196,10 @@ fieldset {
   max-width: 310px;
   margin: 1em auto;
   background: whitesmoke;
-  padding: 0.5em;
+  padding: 1em;
   border-radius: 10px;
   background: none;
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.11);
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.11);
 }
 
 .sign h2 {
@@ -274,4 +274,34 @@ fieldset {
 .gray-p {
   color: var(--main4);
   font-size: 14px;
+}
+
+.link-text2 {
+  font-size: 15px;
+  color: #5e92cf;
+}
+
+.link-reg-div2 {
+  margin: 1em;
+  text-align: center;
+  line-height: 0;
+}
+
+.text-color2 {
+  color: var(--main1);
+}
+
+.link-green {
+  color: var(--main1);
+  text-decoration: underline;
+}
+
+.font-bigger {
+  font-size: 20px;
+}
+
+.check-img-btn2 {
+  outline: none;
+  background: none;
+  border: none;
 }

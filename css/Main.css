@@ -18,8 +18,8 @@
   text-align: center;
   background-image: linear-gradient(to right, var(--main2), var(--main1));
   padding: 1em;
-  border-bottom-right-radius: 50%;
-  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 40%;
+  border-bottom-left-radius: 40%;
   line-height: 1px;
   margin: 0;
 }
@@ -145,7 +145,7 @@
   padding: 0px 5px;
   color: var(--main1);
   background: none;
-  width: 100px;
+  width: 120px;
 }
 
 .checkin-another {
@@ -304,4 +304,11 @@ fieldset {
   outline: none;
   background: none;
   border: none;
+}
+
+.check-img23 {
+  outline: none;
+  cursor: pointer;
+  width: 45%;
+  margin: 0 27.5%;
 }

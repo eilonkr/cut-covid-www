@@ -99,6 +99,7 @@ document.addEventListener("DOMContentLoaded", (ev) => {
         short = sign.querySelector(".short-url");
       sign.querySelector("h2").innerHTML = hub;
       sign.querySelector("h3").innerHTML = zone;
+      sign.querySelector("hubid").innerHTML = zone;
 
       //TODO: shrinken the url
       short.setAttribute("href", url);
